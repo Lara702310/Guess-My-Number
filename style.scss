@@ -1,0 +1,259 @@
+//  Variables ====================================================
+$color-bg: #1a1a2e;
+$color-bg-header: #16213e;
+$color-text: #eee;
+$color-text-muted: #aaa;
+$color-correct: #6bff6b;
+$color-wrong: #ff6b6b;
+$color-dot-red: #ff4444;
+$color-dot-yellow: #ffcc00;
+$color-check: rgb(3, 24, 13);
+$color-hover: #e0dd2f;
+
+$font-pixel: 'Press Start 2P', sans-serif;
+
+// Reset =====================================================
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+}
+
+// == Body ======================
+body {
+
+  font-family: "Press Start 2P", sans-serif;
+  background-color: $color-bg;
+  color: $color-text;
+  min-height: 100vh;
+  transition: background-color 0.4s;
+
+
+}
+
+//  Container ===========================
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// Header ==================================
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 45px 50px;
+  background-color: $color-bg-header;
+  border-bottom: 2px solid;
+  border-color: $color-text;
+
+  &__title {
+    font-size: 26px;
+    color: $color-text;
+    letter-spacing: 2px;
+    text-align: center;
+    padding: 75px 0;
+  }
+
+  &__number-range {
+    font-size: 11px;
+    color: $color-text-muted;
+    white-space: nowrap;
+  }
+}
+
+
+// === Main ==================
+.main {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  padding: 150px 50px;
+}
+
+//  Secret box ===============================
+.secret-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 160px;
+  border: 3px solid $color-text;
+  background-color: $color-bg-header;
+  flex-shrink: 0;
+}
+
+.secret-number {
+  font-size: 60px;
+  color: $color-text;
+  line-height: 1;
+  transition: color 0.3s;
+
+
+}
+
+//  Controls panel ==============================
+.controls-panel {
+  display: flex;
+  gap: 72px;
+  align-items: flex-start;
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__result {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+
+//  Buttons base =========================
+.btn {
+  width: 200px;
+  height: 50px;
+  padding: 14px 0;
+  border: 2px solid $color-text;
+  border-radius: 10px;
+  background: transparent;
+  font-family: $font-pixel;
+  letter-spacing: 1px;
+  color: $color-text;
+  cursor: pointer;
+
+  transition: background 0.12s, color 0.12s, transform 0.08s;
+
+  &:hover {
+    color: $color-bg;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  // controls-panel: btn--input, btn--check 
+  &--input-number {
+    font-size: 18px;
+    cursor: auto;
+    padding: 0 14px;
+    outline: none;
+    transition: border-color 0.15s;
+
+    &:hover {
+      color: $color-text;
+      border-color: $color-hover;
+    }
+
+    &:focus {
+      border-color: $color-correct;
+    }
+
+  }
+
+  &--check {
+    font-size: 13px;
+
+    &:hover {
+      background: $color-check;
+      color: $color-text;
+    }
+  }
+
+  // Htder: btn--again 
+  &--again {
+
+    border-radius: 2px;
+    padding: 10px 18px;
+    font-size: 12px;
+
+    &:hover {
+      background: $color-text ;
+    }
+  }
+}
+
+//  Result message =======================
+.result-message {
+  font-size: 13px;
+  color: $color-text;
+  line-height: 1.8;
+  max-width: 300px;
+
+  &.correct {
+    color: $color-correct;
+  }
+
+  &.lost {
+    color: $color-wrong;
+  }
+}
+
+//  Score list ============================
+.result-score {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__items {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 15px;
+    color: $color-text;
+  }
+}
+
+//  Dots ======================
+.dot {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  &--red {
+    background-color: $color-dot-red;
+  }
+
+  &--yellow {
+    background-color: $color-dot-yellow;
+  }
+}
+
+// Responsive ====================
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+    padding: 20px 24px;
+
+    &__title {
+      font-size: 18px;
+    }
+  }
+
+  .main {
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 24px;
+  }
+
+  .controls-panel {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
