@@ -25,7 +25,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 45px 50px;
-  background-color: #16213e;
+  background-color: #0f1b4d;
   border-bottom: 2px solid;
   border-color: #eee;
 }
@@ -58,7 +58,7 @@ body {
   width: 160px;
   height: 160px;
   border: 3px solid #eee;
-  background-color: #16213e;
+  background-color: #0f1b4d;
   flex-shrink: 0;
 }
 
